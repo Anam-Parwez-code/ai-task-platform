@@ -1,19 +1,14 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-
-function PrivateRoute({ children }) {
-  return localStorage.getItem('token') ? children : <Navigate to="/login" />;
-}
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        {/* Abhi ke liye hum sirf Dashboard dikhayenge taaki build pass ho jaye */}
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/login" element={<div>Login Page (Coming Soon)</div>} />
+        <Route path="/register" element={<div>Register Page (Coming Soon)</div>} />
       </Routes>
     </BrowserRouter>
   );
